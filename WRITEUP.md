@@ -11,59 +11,70 @@ Code: `human_part1.py`. One or two sentences per answer, with the numbers.
 
 **(a) How many ratings, users, and movies are there, and how are ratings distributed across 1–5 stars?**
 
-XXXX
+There are 10000 ratings, 943 movies and 943 users; and the majority of ratings are skewed toward 3 and 4 stars with the lowest number being 1 star reviews
 
 **(b) What is the median number of ratings per user, and how many users have 100 or more ratings?**
 
-XXXX
+The median number of ratings per user is 65.0 and there are 364 users with at least 100 ratings. 
 
 **(c) Which 10 movies have the most ratings?**
 
-XXXX
+Answers are listed in descending order of ratings. 
 
 **(d) Among movies with at least 20 ratings, which 10 have the highest mean rating?**
 
-XXXX
+Answers are listed under d.
 
 **Anything you got stuck on (what you tried, where it broke), or "none":**
 
-XXXX
+Setup of the homework was the hardest part for me, and then I had to remind myself how to do a couple of df related things in pandas by using the internet because my brain has been working in R. 
 
 ## Part 2. The best movie
 
 Code: `human_part2.py`.
 
-**My rule:** XXXX
+**My rule:** Movies with at least 100 ratings and zero 1 star ratings
 
-**One rule I considered and rejected, and why:** XXXX
+**One rule I considered and rejected, and why:** Action movies made before the year 2010 with no reviews under 3 stars and over 400 ratings. Rejected due to complication and pandas familiarity. 
 
 **Top 10 under my rule:**
-
-XXXX
+Rear Window
+Citizen Kane
+Dr Strangelove
+Good Will Hunting
+Lawrence of Arabia
+North by Northwest
+Apollo 13
+Taxi Driver 
+Vertigo 
+Young Frankenstein
 
 **Why my rule, in at most 150 words. Name one thing it gains and one thing it loses:**
 
-XXXX
+I think that my rule's biggest strength is also its biggest weakness in that the simple parameters of the rule make the data fairly easy to work with, but the simplicity itself limits the scope through whcih I can view the movies in the dataset. 
 
 ## Part 3. The most ___ movie
 
 Code: `human_part3.py`.
 
-**My adjective:** XXXX
+**My adjective:** Unwatchable
 
-**My definition** (one sentence, precise enough that a classmate could code it)**:** XXXX
+**My definition** (one sentence, precise enough that a classmate could code it)**:** Movies with >= 35 1 star ratings
 
-**One definition I considered and rejected, and why:** XXXX
+**One definition I considered and rejected, and why:** Movies with >=100 1 star ratings- There were no movies in the dataset with that many 1 star ratings 
 
 **Top 5 under my definition:**
 
-XXXX
+Liar Liar
+Evita
+Crash
+Beavis and Butt-head Do America
+Jungle2Jungle
 
 **What your definition captures, what it misses, and where "___-ness" lives in this data — the
 genre labels, what the crowd did, or the words in the titles. At most 150 words:**
 
-XXXX
-
+My definition captures I think generally poorly recieved films, but it certainly misses the nuance in an individual's enjoyment of a "bad" movie. I set out to capture what movies were the worst, and the only real pattern/similarity I found between my top (or bottom) 5 was that they were all made in 1996 or 1997. 
 ## Part 4. Claude's answers
 
 Claude answers the same three questions in `claude_answers_1_2_3.py`, without seeing your code

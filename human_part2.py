@@ -12,10 +12,20 @@ from load_data import load_all
 
 def top10_my_rule(ratings, ratings_df, movies, movies_df):
     print("== My rule ==")
+    stats = ratings_df.groupby('movie_id')['rating'].agg(
+        count='count',
+        one_star=lambda x: (x == 1).sum(),
+        five_star=lambda x: (x == 5).sum(),
+        mean='mean'
+        )
 
+    result = stats[(stats['count'] >= 100) & (stats['one_star'] == 0)]
+    top10 = result.sort_values('five_star', ascending=False).head(10)
+    top10 = top10.merge(movies_df[['movie_id', 'title']], on='movie_id')
+
+    print(top10[['movie_id', 'title', 'count', 'mean']])
 
 def human_part2(ratings, ratings_df, movies, movies_df):
-    print("part 2 unimplemented")  # delete this line when you start
     top10_my_rule(ratings, ratings_df, movies, movies_df)
 
 

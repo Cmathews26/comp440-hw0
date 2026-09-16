@@ -13,10 +13,19 @@ from load_data import load_all
 
 def top5_my_definition(ratings, ratings_df, movies, movies_df):
     print("== My definition ==")
+    stats = ratings_df.groupby('movie_id')['rating'].agg(
+        count='count',
+        one_star=lambda x: (x == 1).sum(),
+        mean='mean'
+    )
 
+    result = stats[stats['one_star'] >= 35]
+    top5 = result.sort_values('one_star', ascending=False).head(5)
+    top5 = top5.merge(movies_df[['movie_id', 'title']], on='movie_id')
+
+    print(top5[['movie_id', 'title', 'count', 'one_star', 'mean']])
 
 def human_part3(ratings, ratings_df, movies, movies_df):
-    print("part 3 unimplemented")  # delete this line when you start
     top5_my_definition(ratings, ratings_df, movies, movies_df)
 
 
