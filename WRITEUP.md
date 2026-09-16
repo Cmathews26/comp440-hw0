@@ -11,7 +11,7 @@ Code: `human_part1.py`. One or two sentences per answer, with the numbers.
 
 **(a) How many ratings, users, and movies are there, and how are ratings distributed across 1–5 stars?**
 
-There are 10000 ratings, 943 movies and 943 users; and the majority of ratings are skewed toward 3 and 4 stars with the lowest number being 1 star reviews
+There are 100000 ratings, 943 movies and 943 users; and the majority of ratings are skewed toward 3 and 4 stars with the lowest number being 1 star reviews
 
 **(b) What is the median number of ratings per user, and how many users have 100 or more ratings?**
 
@@ -19,7 +19,16 @@ The median number of ratings per user is 65.0 and there are 364 users with at le
 
 **(c) Which 10 movies have the most ratings?**
 
-Answers are listed in descending order of ratings. 
+0                                                     Kolya (1996)
+1                                   L.A. Confidential (1997)
+2                                         Heavyweights (1994)
+3                                 Legends of the Fall (1994)
+4                                        Jackie Brown (1997)
+5          Dr. Strangelove or: How I Learned to Stop Worr...
+6                           Hunt for Red October, The (1990)
+7                                    Jungle Book, The (1994)
+8                                              Grease (1978)
+9                               Remains of the Day, The (1993) 
 
 **(d) Among movies with at least 20 ratings, which 10 have the highest mean rating?**
 
@@ -82,60 +91,69 @@ or your answers.
 
 **Did its numbers for Part 1 match yours? If not, which, and what did you find?**
 
-XXXX
+Yes our numbers matched up. For some reason, the listed movies don't match and I cannot figure out why. 
 
 ## Part 5. Comparing the best movie
 
 **Claude's rule:**
 
-XXXX
+Claude ranked by a Bayesian weighted average
 
 **Read what Claude wrote about its rule. Does it anywhere admit the rule was a choice, and that a different rule was possible? Or does it give its answer as simply the answer? Quote the sentence that decides it:**
 
-XXXX
+A raw highest-average would be won by a movie with a handful of 5-star ratings.
+Instead, rank by a Bayesian-weighted average (like IMDB's old Top 250 formula):
+each movie's mean is pulled toward the global mean, in proportion to how few
+ratings it has (using m=20 as the pull strength). This rewards movies
+that are both well-liked AND widely and consistently rated.
+
+Claude appears to have considered using just a raw highest average but decided it was too simple and limiting. 
 
 **Your Part 2 top 10 and Claude's Part 2 top 10 — not the Part 1(d) lists. Where do they differ, and why?**
 
-XXXX
+The only similarity in our two lists is Rear Window. They differ everywhere else because Claude used a weighted average and I simply used volume ratings > 3 stars combined with 0 1 star ratings. 
 
 **Better for what purpose? Name a situation where your rule is the right one and a situation where Claude's is. At most 150 words. You may conclude yours, its, or neither:**
 
-XXXX
+Mine would be better for showing "total crowd pleasers," or movies that, at least within the dataset, nobody hated enough to give it a 1 star review. Claude's is better for showing the whole picture as well as relating the top movies with the movies already in the dataset. If you wanted to know in general I think my rule is better but I think working in this context I would probably rather have Claude's rule. 
 
 ## Part 6. Comparing the most ___ movie
 
 **Claude's definition:**
 
-XXXX
+the worst movie by raw mean would just be whichever
+movie with only 1-2 ratings got unlucky. Restricting to movies with >= 20
+ratings (so the verdict reflects a real audience, not noise) and taking the lowest
+Bayesian-weighted score identifies the movie that consistently disappointed a lot
+of people who bothered to watch it.
 
 **Is Claude's film in your top 5?**
 
-XXXX
+No 
 
 **What Claude's definition sees that yours does not, and the reverse. At most 150 words:**
 
-XXXX
+Claude's definition is pretty similar to mine but mine takes the extreme whereas Claude's tries to find general poor reception. I.e. my rule is only concerned with movies that people thought were the absolute worst whereas Claude's movies could have achieved their low weighted averages through a bunch of 2 and 3 ratings as opposed to 1 star ratings. 
 
 ## Working with Claude
 
 **What you asked Claude for during Parts 1–3** (debugging and installing only — say what you
 got stuck on)**:**
 
-XXXX
-
+Just general python syntax that I had forgotten as a Data Science major working in R all the time. 
 **Something Claude said that you could not verify, and why. Or "none," and how you checked:**
 
-XXXX
+None
 
 **What you would do differently next time, in 3–5 sentences:**
 
-XXXX
+I would try to get out ahead of Claude and presume what it's going to try to think so I could see how close I could actually get. In this assignment, I just did what I felt like I could do or what I felt like would be best. I wasn't concerned at all with how I thought Claude would do it after me. 
 
 **Where did this assignment slow you down for a reason that was its fault, not yours? Point at
 the step. Or "nowhere." One or two sentences:**
 
-XXXX
+Nowhere
 
-**Hours spent:** XXXX
+**Hours spent:** 4 hours 
 
-**Anyone who helped you, or "no one":** XXXX
+**Anyone who helped you, or "no one":** Google, StackOverflow, Adam Lail 
